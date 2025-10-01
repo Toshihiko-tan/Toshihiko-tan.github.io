@@ -17,14 +17,14 @@ ninja.data = [{
             window.location.href = "/publications/";
           },
         },{id: "nav-projects",
-          title: "projects",
-          description: "A growing collection of your cool projects.",
+          title: "Projects",
+          description: "Selected projects with summaries and links.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-repositories",
-          title: "repositories",
+        },{id: "nav-selected-github-repositories",
+          title: "Selected GitHub Repositories",
           description: "",
           section: "Navigation",
           handler: () => {
@@ -64,6 +64,16 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "projects-awesome-cgm-v2-0-0",
+          title: 'Awesome-CGM v2.0.0',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/AwesomeCGM/";
+            },},{id: "projects-gluco-llm",
+          title: 'Gluco-LLM',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/Gluco-LLM/";
             },},{
         id: 'social-email',
         title: 'email',
