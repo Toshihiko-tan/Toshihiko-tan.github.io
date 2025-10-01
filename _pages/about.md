@@ -36,8 +36,8 @@ I am now actively seeking a **PhD position** for the upcoming year.
 My research lies at the intersection of **Population Genetics, Phylodynamics, and Machine Learning**.  
 At present, I work with **Professor Jonathan Terhorst** (Department of Statistics, U-M) on demographic inference methods in population genetics.
 
-Previously, I collaborated with **Professor Irina Gaynanova** (Department of Biostatistics, U-M), focusing on **Large Language Models (LLMs)** and **Continuous Glucose Monitoring (CGM)**. 
+Previously, I collaborated with **Professor Irina Gaynanova** (Department of Biostatistics, U-M), focusing on **Large Language Models (LLMs)** and **Continuous Glucose Monitoring (CGM)**.
 My undergraduate honors thesis explored the use of Large Language Models (LLMs) for predicting blood glucose levels from CGM data.
 
-Beyond Research, I am a bassist at a local band, and I am a ranked kendo practictioner. 
+Beyond Research, I am a bassist at a local band, and I am a ranked kendo practictioner.
 I also love traveling. Japan is especially dear to me—I have visited 38 out of its 47 prefectures so far. Language is also one of my passions. I grew up speaking English and Chinese, and I am fluent in Japanese and French, with working knowledge of Spanish.
