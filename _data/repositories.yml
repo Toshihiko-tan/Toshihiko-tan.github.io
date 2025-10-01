@@ -5,10 +5,10 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - Toshihiko-tan/Gluco-LLM
+  - Toshihiko-tan/momi3
+  - Toshihiko-tan/rvf-architecture
+  - Toshihiko-tan/Data-Mining-and-Machine-Learning-Project
+  - Toshihiko-tan/Analytics-Dashboard-with-GCP-implementation
+  - Toshihiko-tan/iglu
+  - IrinaStatsLab/Awesome-CGM
