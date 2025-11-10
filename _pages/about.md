@@ -33,6 +33,6 @@ I am an **Accelerated Master’s student in Biostatistics** at the University of
 
 My research interests span **Population Genetics, Phylodynamics, and Machine Learning**. I currently work with Professor Jonathan Terhorst (U-M Statistics) on demographic inference, and previously collaborated with Professor Irina Gaynanova (U-M Biostatistics) on Large Language Models and Continuous Glucose Monitoring (CGM), forming in my honors thesis on LLM-based glucose prediction.
 
-Beyond research, I am a bassist in a local band, a ranked kendo practitioner, and an avid traveler who has visited 38 of Japan’s 47 prefectures.
+Beyond research, I am a bassist in a local band, a Shodan kendo practitioner, and an avid traveler who has visited 38 of Japan’s 47 prefectures.
 
-I am also passionate about languages: native in English and Chinese, fluent in Japanese and French, with working knowledge of Spanish.
+I am also passionate about languages: I'm bilingual in English and Chinese, fluent in Japanese and French, with working knowledge of Spanish.
