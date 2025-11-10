@@ -6,7 +6,7 @@ repo_description_lines_max: 2
 
 github_repos:
   - Toshihiko-tan/Gluco-LLM
-  - Toshihiko-tan/momi3
+  - jthlab/demesinfer
   - Toshihiko-tan/rvf-architecture
   - Toshihiko-tan/Data-Mining-and-Machine-Learning-Project
   - Toshihiko-tan/Analytics-Dashboard-with-GCP-implementation
