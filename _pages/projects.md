@@ -3,7 +3,7 @@ layout: page
 title: Projects
 permalink: /projects/
 description: Selected projects with summaries and links.
-nav: true
+nav: false
 nav_order: 3
 ---
 
