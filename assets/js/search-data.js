@@ -23,8 +23,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-selected-github-repositories",
-          title: "Selected GitHub Repositories",
+        },{id: "nav-repositories",
+          title: "Repositories",
           description: "",
           section: "Navigation",
           handler: () => {
@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "The full cv in pdf format can be accessed via the button above.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
