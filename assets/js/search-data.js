@@ -57,16 +57,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "projects-awesome-cgm-v2-0-0",
-          title: 'Awesome-CGM v2.0.0',
-          description: "",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/AwesomeCGM/";
-            },},{id: "projects-gluco-llm",
-          title: 'Gluco-LLM',
-          description: "",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/Gluco-LLM/";
             },},{
         id: 'social-email',
         title: 'email',
