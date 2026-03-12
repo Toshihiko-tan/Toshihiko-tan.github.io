@@ -29,10 +29,12 @@ latest_posts:
 
 Hello, I am **Samuel (Junyan) Tan** — most of my friends call me Sam.
 
-I am an **Accelerated Master’s student in Biostatistics** at the University of Michigan, where I also earned a B.S. with Honors and Phi Beta Kappa in Statistics and Data Science (May 2025). I am currently seeking a PhD position for the upcoming year.
+I will join the Quantitative and Computational Biology department at the University of Southern California in Fall 2026 as a PhD student of Computational Biology and Bioinformatics, with a joint affiliation at the Keck School of Medicine, where my prospective PI is Professor Charleston Chiang and Professor Doc Edge.
 
-My research interests span **Population Genetics, Phylodynamics, and Machine Learning**. I currently work with Professor Jonathan Terhorst (U-M Statistics) on demographic inference, and previously collaborated with Professor Irina Gaynanova (U-M Biostatistics) on Large Language Models and Continuous Glucose Monitoring (CGM), forming in my honors thesis on LLM-based glucose prediction.
+Currently, I am an **Accelerated Master’s student in Biostatistics** at the University of Michigan, where I also earned a B.S. with Honors and Phi Beta Kappa in Statistics and Data Science (May 2025).
 
-Beyond research, I am a bassist in a local band, a Shodan kendo practitioner, and an avid traveler who has visited 38 of Japan’s 47 prefectures.
+My research interests span **Population Genetics and Machine Learning**. My research journey includes a summer internship with Professor Qizhai Li at the Chinese Academy of Sciences (CAS) researching multimodal regression. At the University of Michigan, I worked with Professor Jonathan Terhorst (Statistics) on demographic inference, and collaborated with Professor Irina Gaynanova (Biostatistics) on Large Language Models and Continuous Glucose Monitoring (CGM), which culminated in my honors thesis on LLM-based glucose prediction.
+
+Beyond research, I play the 5-string bass in a local band, practice kendo as a shodan kenshi, and am an avid traveler who has visited 39 of Japan’s 47 prefectures (most recently completing a solo motorcycle tour of Okinawa).
 
 I am also passionate about languages: I'm bilingual in English and Chinese, fluent in Japanese and French, with working knowledge of Spanish.

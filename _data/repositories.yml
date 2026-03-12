@@ -7,9 +7,9 @@ repo_description_lines_max: 2
 github_repos:
   - Toshihiko-tan/Gluco-LLM
   - jthlab/demesinfer
+  - IrinaStatsLab/Awesome-CGM
   - Toshihiko-tan/rvf-architecture
   - Toshihiko-tan/Data-Mining-and-Machine-Learning-Project
   - Toshihiko-tan/Analytics-Dashboard-with-GCP-implementation
   - Toshihiko-tan/iglu
   - Toshihiko-tan/Bayesian-Analysis-Project
-  - IrinaStatsLab/Awesome-CGM
