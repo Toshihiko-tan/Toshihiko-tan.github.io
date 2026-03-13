@@ -29,8 +29,6 @@ latest_posts:
 
 Hello, I am **Samuel (Junyan) Tan** — most of my friends call me Sam.
 
-I will join the Quantitative and Computational Biology department at the University of Southern California in Fall 2026 as a PhD student of Computational Biology and Bioinformatics, with a joint affiliation at the Keck School of Medicine, where my prospective PI is Professor Charleston Chiang and Professor Doc Edge.
-
 Currently, I am an **Accelerated Master’s student in Biostatistics** at the University of Michigan, where I also earned a B.S. with Honors and Phi Beta Kappa in Statistics and Data Science (May 2025).
 
 My research interests span **Population Genetics and Machine Learning**. My research journey includes a summer internship with Professor Qizhai Li at the Chinese Academy of Sciences (CAS) researching multimodal regression. At the University of Michigan, I worked with Professor Jonathan Terhorst (Statistics) on demographic inference, and collaborated with Professor Irina Gaynanova (Biostatistics) on Large Language Models and Continuous Glucose Monitoring (CGM), which culminated in my honors thesis on LLM-based glucose prediction.
