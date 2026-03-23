@@ -29,9 +29,11 @@ latest_posts:
 
 Hello, I am **Samuel (Junyan) Tan** — most of my friends call me Sam.
 
+In Fall 2026, I will be joining the Quantitative and Computational Biology department at the **University of Southern California (USC)** as a PhD student.
+
 Currently, I am an **Accelerated Master’s student in Biostatistics** at the University of Michigan, where I also earned a B.S. with Honors and Phi Beta Kappa in Statistics and Data Science (May 2025).
 
-My research interests span **Population Genetics and Machine Learning**. My research journey includes a summer internship with Professor Qizhai Li at the Chinese Academy of Sciences (CAS) researching multimodal regression. At the University of Michigan, I worked with Professor Jonathan Terhorst (Statistics) on demographic inference, and collaborated with Professor Irina Gaynanova (Biostatistics) on Large Language Models and Continuous Glucose Monitoring (CGM), which culminated in my honors thesis on LLM-based glucose prediction.
+My research sits at the intersection of **Population Genetics and Machine Learning**. Recently, I have worked with **Prof. Jonathan Terhorst** (U-M Statistics) to build Python libraries for complex demographic inference, and collaborated with **Prof. Irina Gaynanova** (U-M Biostatistics) to develop zero-shot LLM frameworks for continuous glucose monitoring (CGM) forecasting. Previously, I spent a summer researching multimodal regression at the Chinese Academy of Sciences under **Prof. Qizhai Li**.
 
 Beyond research, I play the 5-string bass in a local band, practice kendo as a shodan kenshi, and am an avid traveler who has visited 39 of Japan’s 47 prefectures (most recently completing a solo motorcycle tour of Okinawa).
 
