@@ -19,7 +19,7 @@ npm start       # preview at http://localhost:8080, reloads as you edit
 
 | To change…                                         | Edit                          |
 | -------------------------------------------------- | ----------------------------- |
-| Name, title, links, photo, interests, education    | `src/_data/site.yaml`         |
+| Name, title, links, photo, menu, education         | `src/_data/site.yaml`         |
 | Bio on the home page                               | `src/index.md`                |
 | Intro text on the Research page                    | `src/research.md`             |
 | Publications (Research, home and CV pages)         | `src/_data/publications.yaml` |
@@ -31,7 +31,8 @@ npm start       # preview at http://localhost:8080, reloads as you edit
 
 ### Photo and CV
 
-- The photo is `src/assets/img/profile.jpg` (square, 480×480). Replace the file to change it.
+- The photo is `src/assets/img/profile.jpg` (square; it's shown as a small circle). Replace the file
+  to change it.
 - The CV page (`/cv/`) shows the PDF at `src/assets/pdf/cv.pdf`, with a **Download PDF** button.
   To update it, compile your LaTeX CV and replace that file. Everything in the PDF is public, so leave
   out anything you don't want online (the current copy has no phone number).
@@ -39,6 +40,23 @@ npm start       # preview at http://localhost:8080, reloads as you edit
   the education list in `site.yaml` and `publications.yaml`. On phones, which can't show a PDF inside
   a page, visitors see the web version and the Download button.
 - Set `cv_pdf: ""` in `site.yaml` to drop the PDF and show only the web version.
+
+### Life page
+
+`/life/` is the personal page: Music (bands, shows, radio), Travel (Japan's 47 prefectures),
+Kendo (clubs and rank exams) and Ramen, with numbered panels at the top that jump to each section.
+Everything on it comes from `src/_data/life.yaml`, and the comments there explain each field.
+
+Add `draft: true` to any entry to keep it to your local preview while you write it. More sections
+can be added the same way, each with its own panel in `src/life.njk`.
+
+### Home page panels (set aside)
+
+The home page used to have tall numbered panels with sideways type beside your name. They're
+switched off for now, and your name block is centered instead. Everything needed to bring them back
+is kept: the markup in `src/_includes/partials/panels.njk` (also used on the Life page), the links in `featured` in `site.yaml`,
+and the styles under "Panels" in `style.css` (with a note on the one layout change needed).
+The menu at the top of every page comes from `nav` in `site.yaml`.
 
 ### Publications
 

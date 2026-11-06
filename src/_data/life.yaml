@@ -1,0 +1,134 @@
+# ---------------------------------------------------------------------------
+# The Life page (/life/): music, travel and kendo. More sections can be added the
+# same way.
+#
+# Anything marked `draft: true` shows in your local preview (with a DRAFT label)
+# but never on the live site, which is handy for entries you're still writing.
+#
+# Text can use inline Markdown: [links](https://example.org) and *emphasis*.
+# Only add links to accounts you're happy to make public.
+# ---------------------------------------------------------------------------
+
+intro: Music, travel and other things I do outside research.
+
+music:
+  blurb: Bands and radio                 # the small line in the Music panel
+  text: >-
+    I play bass and guitar in creSCendo at USC, and bass in Blue Records, a band based in
+    Ann Arbor, Michigan. Before that, I hosted a radio show on KCSB-FM in Santa Barbara.
+  links: []                              # recordings or videos, if you ever want to add some
+  # Bands, most recent first. Shows are sorted newest first automatically, and shows
+  # that haven't happened yet get an "Upcoming" tag on the page.
+  bands:
+    - name: creSCendo
+      role: Bass and guitar
+      based: USC
+      url: ""                            # band website or Instagram, optional
+      shows:
+        - date: 2026-11-15
+          title: creSCendo end-of-semester performance
+          venue: Tommy's Place, USC
+        - date: 2026-10-18
+          title: USC Arts Performance Series
+          venue: USC Village
+    - name: Blue Records
+      role: Bass
+      based: Ann Arbor, Michigan
+      url: ""
+      shows:
+        - date: 2026-04-03
+          title: Blue Records x You’relate! Live
+          venue: The Circ Bar
+        - date: 2026-01-25
+          title: Blue Records Music Festival
+          venue: Michigan League
+        - date: 2025-10-18
+          title: Marupo ACTS “Lights After Dark”
+          venue: King & White
+        - date: 2025-04-14
+          title: You’relate! x Blue Records Live Session
+          venue: University of Michigan School of Music, Theatre & Dance
+        - date: 2025-02-23
+          title: Blue Records Music Festival
+          venue: Michigan League
+  # Radio stations, shown after the bands. Each role has free-text dates.
+  radio:
+    - name: KCSB-FM 91.9
+      based: Santa Barbara, CA
+      url: https://kcsb.org
+      about: The community radio station at UC Santa Barbara.
+      roles:
+        - title: KJUC General Manager & Executive Committee member
+          dates: Jun 2022 – Apr 2023
+          text: >-
+            Ran an 8-week training program for new hosts, and worked with the executive
+            committee on concerts and running the station.
+        - title: Host of “Hibikase”
+          dates: Jan 2022 – Apr 2023
+          text: My weekly show of Japanese and Chinese music.
+
+kendo:
+  blurb: Since 2021                      # the small line in the Kendo panel
+  text: >-
+    I started kendo at UCSB in 2021 and have practiced on and off since, with a few
+    breaks along the way.
+  # Clubs, most recent first. `federation` is the regional body the club belongs to
+  # (leave it empty if there isn't one).
+  dojos:
+    - name: USC Kendo Club
+      place: Los Angeles, CA
+      dates: Sep 2026 – present
+      federation: ""                     # not on the SCKF or SCKO member lists
+    - name: Michigan Kendo Club
+      place: Ann Arbor, MI
+      dates: May 2023 – Aug 2026
+      federation: Midwest Kendo Federation
+    - name: UCSB Kendo Club
+      place: Santa Barbara, CA
+      dates: Sep 2021 – Apr 2023
+      federation: Southern California Kendo Organization
+  # Rank examinations, sorted newest first automatically.
+  ranks:
+    - rank: Shodan (初段)
+      date: 2025-10-05
+      place: Kalamazoo, MI
+    - rank: 1 kyu
+      date: 2023-09-23
+      place: Cleveland, OH
+    - rank: 2 kyu
+      date: 2023-03-26
+      place: Irvine, CA
+    - rank: 3 kyu
+      date: 2022-11-20
+      place: Irvine, CA
+
+ramen:
+  blurb: "@ramenisthecure_"              # the small line in the Ramen panel
+  text: I keep a log of the ramen shops I visit on Instagram.
+  handle: "@ramenisthecure_"
+  url: https://www.instagram.com/ramenisthecure_/
+
+travel:
+  blurb: All 47 prefectures of Japan     # the small line in the Travel panel
+  text: I've been to every one of Japan's 47 prefectures.
+  japan_note: All 47 prefectures         # shown beside the "Japan" heading
+  # Japan by region, north to south (47 prefectures in all).
+  japan:
+    - region: Hokkaido
+      prefectures: [Hokkaido]
+    - region: Tohoku
+      prefectures: [Aomori, Iwate, Miyagi, Akita, Yamagata, Fukushima]
+    - region: Kanto
+      prefectures: [Ibaraki, Tochigi, Gunma, Saitama, Chiba, Tokyo, Kanagawa]
+    - region: Chubu
+      prefectures: [Niigata, Toyama, Ishikawa, Fukui, Yamanashi, Nagano, Gifu, Shizuoka, Aichi]
+    - region: Kansai
+      prefectures: [Mie, Shiga, Kyoto, Osaka, Hyogo, Nara, Wakayama]
+    - region: Chugoku
+      prefectures: [Tottori, Shimane, Okayama, Hiroshima, Yamaguchi]
+    - region: Shikoku
+      prefectures: [Tokushima, Kagawa, Ehime, Kochi]
+    - region: Kyushu & Okinawa
+      prefectures: [Fukuoka, Saga, Nagasaki, Kumamoto, Oita, Miyazaki, Kagoshima, Okinawa]
+  # Other places, shown under Japan. Each can have `year`, `note` and `url` (e.g. a blog post).
+  places: []

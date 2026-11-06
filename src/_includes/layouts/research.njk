@@ -3,62 +3,68 @@ layout: base
 ---
 <header class="page-header">
   <h1>{{ title }}</h1>
+  <div class="prose lede-prose">
+    {{ content | safe }}
+  </div>
 </header>
-<div class="prose">
-  {{ content | safe }}
-</div>
 
 {%- set pubs = publications | published %}
-<section class="publications">
+<section class="block publications">
   <h2 class="section-title"><span>Publications</span></h2>
-  {%- if pubs.length %}
-  {%- for group in pubs | groupByYear %}
-  <h3 class="year">{{ group.year }}</h3>
-  <ol class="pubs">
-    {%- for pub in group.items %}
-    {% include "partials/pub.njk" %}
+  <div class="block-body">
+    {%- if pubs.length %}
+    {%- for group in pubs | groupByYear %}
+    <h3 class="year">{{ group.year }}</h3>
+    <ol class="pubs">
+      {%- for pub in group.items %}
+      {% include "partials/pub.njk" %}
+      {%- endfor %}
+    </ol>
     {%- endfor %}
-  </ol>
-  {%- endfor %}
-  {%- if pubs | hasEqualContribution %}
-  <p class="fineprint"><sup>*</sup> Equal contribution</p>
-  {%- endif %}
-  {%- else %}
-  <p class="empty">Publications will be listed here soon{% if site.links.scholar %}. In the meantime, see my <a href="{{ site.links.scholar }}">Google Scholar profile</a>{% endif %}.</p>
-  {%- endif %}
+    {%- if pubs | hasEqualContribution %}
+    <p class="fineprint"><sup>*</sup> Equal contribution</p>
+    {%- endif %}
+    {%- else %}
+    <p class="empty">Publications will be listed here soon{% if site.links.scholar %}. In the meantime, see my <a href="{{ site.links.scholar }}">Google Scholar profile</a>{% endif %}.</p>
+    {%- endif %}
+  </div>
 </section>
 
 {%- if cv.talks.length %}
-<section>
+<section class="block">
   <h2 class="section-title"><span>Talks &amp; posters</span></h2>
-  <ul class="talks">
-    {%- for talk in cv.talks %}
-    <li>
-      <div class="talk-title">{{ talk.title }}</div>
-      <div class="talk-meta">
-        {{ talk.type }}{% if talk.event %}, {% if talk.url %}<a href="{{ talk.url }}">{{ talk.event }}</a>{% else %}{{ talk.event }}{% endif %}{% endif %} · {{ talk.date }}
-        {%- if talk.award %} <span class="badge">{{ talk.award }}</span>{% endif %}
-      </div>
-    </li>
-    {%- endfor %}
-  </ul>
+  <div class="block-body">
+    <ul class="talks">
+      {%- for talk in cv.talks %}
+      <li>
+        <div class="talk-title">{{ talk.title }}</div>
+        <div class="talk-meta">
+          {{ talk.type }}{% if talk.event %}, {% if talk.url %}<a href="{{ talk.url }}">{{ talk.event }}</a>{% else %}{{ talk.event }}{% endif %}{% endif %} · {{ talk.date }}
+          {%- if talk.award %} <span class="badge">{{ talk.award }}</span>{% endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
 </section>
 {%- endif %}
 
 {%- if software.length %}
-<section>
+<section class="block">
   <h2 class="section-title"><span>Software &amp; data</span></h2>
-  <ul class="software">
-    {%- for sw in software %}
-    <li>
-      <a class="software-name" href="{{ sw.url }}">{% icon "github" %}{{ sw.name }}</a>
-      <p>{{ sw.description }}</p>
-      <div class="software-meta">
-        {%- if sw.language %}<span>{{ sw.language }}</span>{% endif %}
-        {%- if sw.role %}<span>{{ sw.role }}</span>{% endif %}
-      </div>
-    </li>
-    {%- endfor %}
-  </ul>
+  <div class="block-body">
+    <ul class="software">
+      {%- for sw in software %}
+      <li>
+        <a class="software-name" href="{{ sw.url }}">{% icon "github" %}{{ sw.name }}</a>
+        <p>{{ sw.description }}</p>
+        <div class="software-meta">
+          {%- if sw.language %}<span>{{ sw.language }}</span>{% endif %}
+          {%- if sw.role %}<span>{{ sw.role }}</span>{% endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
 </section>
 {%- endif %}

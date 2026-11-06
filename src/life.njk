@@ -1,0 +1,186 @@
+---
+layout: base
+title: Life
+description: Music, travel and other things Junyan (Samuel) Tan does outside research.
+permalink: /life/
+# To hide this page again, add `draft: true` here and on Life in site.yaml → nav.
+---
+{#- Content comes from src/_data/life.yaml. -#}
+{%- set panelItems = [
+  { "title": "Music", "blurb": life.music.blurb, "url": "#music" },
+  { "title": "Travel", "blurb": life.travel.blurb, "url": "#travel" },
+  { "title": "Kendo", "blurb": life.kendo.blurb, "url": "#kendo" },
+  { "title": "Ramen", "blurb": life.ramen.blurb, "url": "#ramen" }
+] %}
+{%- set panelLabel = "On this page" %}
+<header class="page-header with-panels">
+  <div>
+    <h1>{{ title }}</h1>
+    {%- if draft %}<p><span class="badge badge-draft">Draft · not on the live site</span></p>{% endif %}
+    <p class="lede">{{ life.intro | inlineMarkdown | safe }}</p>
+  </div>
+  {% include "partials/panels.njk" %}
+</header>
+
+{%- set m = life.music %}
+<section class="block" id="music">
+  <h2 class="section-title"><span>Music</span></h2>
+  <div class="block-body">
+    {%- if m.text %}<p class="life-text">{{ m.text | inlineMarkdown | safe }}</p>{% endif %}
+
+    {%- set musicLinks = m.links | published %}
+    {%- if musicLinks.length %}
+    <ul class="links life-links">
+      {%- for l in musicLinks %}
+      <li><a href="{{ l.url }}">{{ l.label }}{% if l.draft %} (draft){% endif %}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    {%- for band in m.bands | published %}
+    <div class="band">
+      <h3 class="band-head">
+        <span class="band-name">{% if band.url %}<a href="{{ band.url }}">{{ band.name }}</a>{% else %}{{ band.name }}{% endif %}</span>
+        <span class="band-meta">{{ band.role }}{% if band.based %} · {{ band.based }}{% endif %}</span>
+      </h3>
+      {%- set shows = band.shows | published | byDateDesc %}
+      {%- if shows.length %}
+      <ul class="news shows">
+        {%- for s in shows %}
+        {#- data-show-date lets site.js tag shows that haven't happened yet as "Upcoming". #}
+        <li data-show-date="{{ s.date | isoDate }}">
+          <time datetime="{{ s.date | isoDate }}">{{ s.date | shortDate }}</time>
+          <div>
+            <span class="show-title">{{ s.title | inlineMarkdown | safe }}
+              {%- if s.draft %} <span class="badge badge-draft">Draft</span>{% endif %}</span>
+            {%- if s.venue %}<span class="show-venue">{{ s.venue | inlineMarkdown | safe }}</span>{% endif %}
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </div>
+    {%- endfor %}
+
+    {%- for station in m.radio | published %}
+    <div class="band">
+      <h3 class="band-head">
+        <span class="band-name">{% if station.url %}<a href="{{ station.url }}">{{ station.name }}</a>{% else %}{{ station.name }}{% endif %}</span>
+        <span class="band-meta">Radio{% if station.based %} · {{ station.based }}{% endif %}</span>
+      </h3>
+      {%- if station.about %}<p class="band-about">{{ station.about | inlineMarkdown | safe }}</p>{% endif %}
+      {%- set roles = station.roles | published %}
+      {%- if roles.length %}
+      <ul class="news shows roles">
+        {%- for role in roles %}
+        <li>
+          {#- Each side of "Jun 2022 – Apr 2023" stays on one line; it may break after the dash. #}
+          <span class="role-dates">
+            {%- for part in role.dates.split(" – ") %}<span class="nowrap">{{ part }}{% if not loop.last %} –{% endif %}</span>{% if not loop.last %} {% endif %}{% endfor -%}
+          </span>
+          <div>
+            <span class="show-title">{{ role.title }}</span>
+            {%- if role.text %}<span class="show-venue">{{ role.text | inlineMarkdown | safe }}</span>{% endif %}
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- set t = life.travel %}
+<section class="block" id="travel">
+  <h2 class="section-title"><span>Travel</span></h2>
+  <div class="block-body">
+    {%- if t.text %}<p class="life-text">{{ t.text | inlineMarkdown | safe }}</p>{% endif %}
+
+    {%- if t.japan and t.japan.length %}
+    <div class="band">
+      <h3 class="band-head">
+        <span class="band-name">Japan</span>
+        {%- if t.japan_note %}<span class="band-meta">{{ t.japan_note }}</span>{% endif %}
+      </h3>
+      <ul class="news regions">
+        {%- for r in t.japan %}
+        <li>
+          <span class="role-dates">{{ r.region }}</span>
+          <div>{{ r.prefectures | join(" · ") }}</div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+
+    {%- set places = t.places | published %}
+    {%- if places.length %}
+    <ul class="plain places">
+      {%- for p in places %}
+      <li>
+        <span class="places-name">
+          {%- if p.url %}<a href="{{ p.url }}">{{ p.place }}</a>{% else %}{{ p.place }}{% endif %}
+          {%- if p.draft %} <span class="badge badge-draft">Draft</span>{% endif %}
+        </span>
+        {%- if p.note %}<span class="places-note">{{ p.note | inlineMarkdown | safe }}</span>{% endif %}
+        {%- if p.year %}<span class="places-year">{{ p.year }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>
+
+{%- set k = life.kendo %}
+<section class="block" id="kendo">
+  <h2 class="section-title"><span>Kendo</span></h2>
+  <div class="block-body kendo">
+    {%- if k.text %}<p class="life-text">{{ k.text | inlineMarkdown | safe }}</p>{% endif %}
+
+    {%- set dojos = k.dojos | published %}
+    {%- if dojos.length %}
+    <h3 class="sub-title">Dojos</h3>
+    <ul class="news shows roles">
+      {%- for d in dojos %}
+      <li>
+        <span class="role-dates">
+          {%- for part in d.dates.split(" – ") %}<span class="nowrap">{{ part }}{% if not loop.last %} –{% endif %}</span>{% if not loop.last %} {% endif %}{% endfor -%}
+        </span>
+        <div>
+          <span class="show-title">{{ d.name }}</span>
+          <span class="show-venue">{{ d.place }}{% if d.federation %} · {{ d.federation }}{% endif %}</span>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    {%- set ranks = k.ranks | published | byDateDesc %}
+    {%- if ranks.length %}
+    <h3 class="sub-title">Rank examinations</h3>
+    <ul class="news shows">
+      {%- for r in ranks %}
+      <li>
+        <time datetime="{{ r.date | isoDate }}">{{ r.date | shortDate }}</time>
+        <div>
+          <span class="show-title">{{ r.rank }}</span>
+          {%- if r.place %}<span class="show-venue">{{ r.place }}</span>{% endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>
+
+{%- set rm = life.ramen %}
+<section class="block" id="ramen">
+  <h2 class="section-title"><span>Ramen</span></h2>
+  <div class="block-body">
+    {%- if rm.text %}<p class="life-text">{{ rm.text | inlineMarkdown | safe }}</p>{% endif %}
+    {%- if rm.url %}
+    <p class="ramen-link"><a href="{{ rm.url }}" rel="me"><span class="ramen-handle">{{ rm.handle }}</span><span class="ramen-where">on Instagram ↗</span></a></p>
+    {%- endif %}
+  </div>
+</section>

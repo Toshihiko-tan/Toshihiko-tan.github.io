@@ -43,7 +43,8 @@ cv: /cv/
 # src/assets/pdf/cv.pdf. Set this to "" to show only the web version.
 cv_pdf: /assets/pdf/cv.pdf
 
-# Top navigation.
+# Navigation: the numbered menu at the top of every page.
+# `draft: true` shows an item only in local preview.
 nav:
   - title: About
     url: /
@@ -53,6 +54,24 @@ nav:
     url: /blog/
   - title: CV
     url: /cv/
+  - title: Life
+    url: /life/
+
+# Tall numbered panels for the home page. NOT SHOWN at the moment (see partials/panels.njk).
+# `blurb` is the small line in each panel (hidden on phones). Four fit best.
+featured:
+  - title: demestats
+    blurb: Paper in Bioinformatics, 2026
+    url: https://doi.org/10.1093/bioinformatics/btag511
+  - title: Gluco-LLM
+    blurb: LLMs for glucose forecasting
+    url: https://github.com/Toshihiko-tan/Gluco-LLM
+  - title: Awesome-CGM
+    blurb: Open CGM datasets
+    url: https://github.com/IrinaStatsLab/Awesome-CGM
+  - title: CV
+    blurb: Download the PDF
+    url: /assets/pdf/cv.pdf
 
 interests:
   - Population genetics

@@ -2,74 +2,71 @@
 layout: base
 ---
 <section class="hero">
-  <img class="avatar" src="{{ site.photo }}" alt="Photo of {{ site.name }}" width="160" height="160">
-  <div class="hero-text">
+  <div class="hero-id">
+    <img class="avatar" src="{{ site.photo }}" alt="Photo of {{ site.name }}" width="480" height="480">
+    <p class="hero-label">{{ site.role }}</p>
     <h1>{{ site.name }}</h1>
-    <p class="role">{{ site.role }}</p>
-    <p class="affil">{{ site.affiliation }}{% if site.location %} · {{ site.location }}{% endif %}</p>
+    <p class="hero-affil">{{ site.affiliation }}{% if site.location %}<br>{{ site.location }}{% endif %}</p>
     {% include "partials/links.njk" %}
   </div>
 </section>
 
-<section class="prose bio">
-  {{ content | safe }}
+<section class="block" id="about">
+  <h2 class="section-title"><span>About</span></h2>
+  <div class="block-body prose bio">
+    {{ content | safe }}
+  </div>
 </section>
 
-{%- if site.interests.length or site.education.length %}
-<section class="facts">
-  {%- if site.interests.length %}
-  <div>
-    <h2 class="section-title"><span>Interests</span></h2>
-    <ul class="plain">
-      {%- for interest in site.interests %}
-      <li>{{ interest }}</li>
-      {%- endfor %}
-    </ul>
-  </div>
-  {%- endif %}
-  {%- if site.education.length %}
-  <div>
-    <h2 class="section-title"><span>Education</span></h2>
+{%- if site.education.length %}
+<section class="block">
+  <h2 class="section-title"><span>Education</span></h2>
+  <div class="block-body">
     <ul class="plain edu">
       {%- for e in site.education %}
       <li>
         <span class="edu-degree">{{ e.degree }}</span>
-        <span class="edu-inst">{{ e.institution }}{% if e.years %} · {{ e.years }}{% endif %}</span>
-        {%- if e.note %}<span class="edu-inst">{{ e.note }}</span>{% endif %}
+        <span class="edu-inst">{{ e.institution }}{% if e.note %} · {{ e.note }}{% endif %}</span>
+        {%- if e.years %}<span class="edu-years">{{ e.years }}</span>{% endif %}
       </li>
       {%- endfor %}
     </ul>
   </div>
-  {%- endif %}
 </section>
 {%- endif %}
 
 {%- set allNews = news | published | byDateDesc %}
 {%- if allNews.length %}
-<section>
+<section class="block">
   <h2 class="section-title"><span>News</span>{% if allNews.length > 5 %}<a href="/news/">All news →</a>{% endif %}</h2>
-  {%- set newsItems = allNews | limit(5) %}
-  {% include "partials/news-list.njk" %}
+  <div class="block-body">
+    {%- set newsItems = allNews | limit(5) %}
+    {% include "partials/news-list.njk" %}
+  </div>
 </section>
 {%- endif %}
 
 {%- set featured = publications | published | selected %}
 {%- if featured.length %}
-<section>
+<section class="block">
   <h2 class="section-title"><span>Selected publications</span><a href="/research/">All publications →</a></h2>
-  <ol class="pubs">
-    {%- for pub in featured %}
-    {% include "partials/pub.njk" %}
-    {%- endfor %}
-  </ol>
+  <div class="block-body">
+    <ol class="pubs">
+      {%- for pub in featured %}
+      {% include "partials/pub.njk" %}
+      {%- endfor %}
+    </ol>
+  </div>
 </section>
 {%- endif %}
 
 {%- set recent = collections.posts | newestFirst | limit(3) %}
 {%- if recent.length %}
-<section>
+<section class="block">
   <h2 class="section-title"><span>Recent posts</span><a href="/blog/">All posts →</a></h2>
-  {%- set postItems = recent %}
-  {% include "partials/post-list.njk" %}
+  <div class="block-body">
+    {%- set postItems = recent %}
+    {% include "partials/post-list.njk" %}
+  </div>
 </section>
 {%- endif %}

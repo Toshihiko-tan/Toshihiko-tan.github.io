@@ -1,0 +1,20 @@
+{#- Tall numbered panels with sideways type (01, 02, 03…), each a link.
+    Set `panelItems` (a list of { title, blurb, url }) and optionally `panelLabel` before
+    including this; without them it uses `featured` from site.yaml. Styles are under
+    "Panels" in style.css. Used on the Life page; the home page doesn't show panels now. -#}
+{%- set items = panelItems or site.featured %}
+{%- if items and items.length %}
+<nav aria-label="{{ panelLabel or 'Featured' }}">
+  <ul class="panels">
+    {%- for item in items %}
+    <li class="panel">
+      <a href="{{ item.url }}">
+        <span class="panel-num">{{ '0' if loop.index < 10 }}{{ loop.index }}</span>
+        <span class="panel-text">{{ item.title }}</span>
+        {%- if item.blurb %}<span class="panel-blurb">{{ item.blurb }}</span>{% endif %}
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</nav>
+{%- endif %}

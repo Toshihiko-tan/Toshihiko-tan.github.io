@@ -35,6 +35,15 @@ cvViewButtons.forEach((button) => {
   });
 });
 
+// Life page: tag shows that haven't happened yet. Done in the browser so the tag
+// disappears on its own after the date, without rebuilding the site.
+const today = new Date().toLocaleDateString("en-CA"); // YYYY-MM-DD in the visitor's time zone
+document.querySelectorAll("[data-show-date]").forEach((show) => {
+  if (show.dataset.showDate >= today) {
+    show.querySelector(".show-title")?.insertAdjacentHTML("beforeend", ' <span class="badge">Upcoming</span>');
+  }
+});
+
 // "Copy" button on BibTeX panels.
 document.querySelectorAll("[data-copy]").forEach((button) => {
   button.addEventListener("click", async () => {
