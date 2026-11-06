@@ -1,0 +1,18 @@
+{%- set linkDefs = [
+  { "key": "email", "label": "Email", "icon": "mail" },
+  { "key": "cv", "label": "CV", "icon": "cv" },
+  { "key": "scholar", "label": "Google Scholar", "icon": "scholar" },
+  { "key": "orcid", "label": "ORCID", "icon": "orcid" },
+  { "key": "github", "label": "GitHub", "icon": "github" },
+  { "key": "linkedin", "label": "LinkedIn", "icon": "linkedin" },
+  { "key": "bluesky", "label": "Bluesky", "icon": "bluesky" },
+  { "key": "x", "label": "X", "icon": "x" }
+] %}
+<ul class="links">
+  {%- for l in linkDefs %}
+  {%- set href = site.cv if l.key == "cv" else site.links[l.key] %}
+  {%- if href and not (l.key == "cv" and hideCvLink) %}
+  <li><a href="{{ ('mailto:' + href) if l.key == 'email' else href }}"{% if l.key != "email" and l.key != "cv" %} rel="me"{% endif %}>{% icon l.icon %}<span>{{ l.label }}</span></a></li>
+  {%- endif %}
+  {%- endfor %}
+</ul>

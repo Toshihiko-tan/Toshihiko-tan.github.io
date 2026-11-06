@@ -1,0 +1,38 @@
+---
+layout: base
+ogType: article
+---
+{%- set postTags = tags | withoutPostsTag %}
+<article class="post">
+  <header class="post-header">
+    <p class="eyebrow"><a href="/blog/">← Blog</a></p>
+    <h1>{{ title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+      <span>{{ content | readingTime }}</span>
+      {%- for tag in postTags %}
+      <span class="tag">{{ tag }}</span>
+      {%- endfor %}
+      {%- if draft %}
+      <span class="badge badge-draft">Draft</span>
+      {%- endif %}
+    </div>
+  </header>
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  {%- set olderPost = collections.posts | getPreviousCollectionItem %}
+  {%- set newerPost = collections.posts | getNextCollectionItem %}
+  {%- if olderPost or newerPost %}
+  <nav class="post-nav" aria-label="More posts">
+    {%- if olderPost %}
+    <a class="post-nav-older" href="{{ olderPost.url }}"><span>← Older</span>{{ olderPost.data.title }}</a>
+    {%- endif %}
+    {%- if newerPost %}
+    <a class="post-nav-newer" href="{{ newerPost.url }}"><span>Newer →</span>{{ newerPost.data.title }}</a>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</article>

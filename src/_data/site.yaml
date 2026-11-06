@@ -1,0 +1,75 @@
+# ---------------------------------------------------------------------------
+# Site-wide settings: name, links and the facts shown on the home page.
+# The CV page draws on this file (education) and on cv.yaml (everything else).
+# ---------------------------------------------------------------------------
+
+name: Junyan (Samuel) Tan
+role: PhD Student, Computational Biology and Bioinformatics
+affiliation: University of Southern California
+location: Los Angeles, CA
+
+# Used for search results and link previews.
+description: >-
+  Junyan (Samuel) Tan is a PhD student in Computational Biology and Bioinformatics at the
+  University of Southern California, working on population genetics, quantitative genetics
+  and machine learning.
+
+url: https://toshihiko-tan.github.io
+lang: en
+
+# Square photo in src/assets/img/.
+photo: /assets/img/profile.jpg
+
+# Spellings of your name as they appear in author lists.
+# Any match is shown in bold on publication entries.
+author_names:
+  - Junyan Tan
+  - J. Tan
+  - Samuel Tan
+
+# Links shown under your name. Leave a value empty ("") to hide it.
+links:
+  email: junyant@usc.edu
+  scholar: ""      # Google Scholar profile URL
+  orcid: https://orcid.org/0009-0005-9697-7696
+  github: https://github.com/Toshihiko-tan
+  linkedin: https://www.linkedin.com/in/samuel-tan-b00606221/
+  bluesky: ""
+  x: ""
+
+# The "CV" button under your name points here (the web CV page).
+cv: /cv/
+# PDF version, shown on the CV page with a "Download PDF" button. To update it, replace
+# src/assets/pdf/cv.pdf. Set this to "" to show only the web version.
+cv_pdf: /assets/pdf/cv.pdf
+
+# Top navigation.
+nav:
+  - title: About
+    url: /
+  - title: Research
+    url: /research/
+  - title: Blog
+    url: /blog/
+  - title: CV
+    url: /cv/
+
+interests:
+  - Population genetics
+  - Quantitative genetics
+  - Machine learning
+
+education:
+  - degree: Ph.D., Computational Biology and Bioinformatics
+    institution: University of Southern California
+    location: Los Angeles, CA
+    years: In progress
+  - degree: M.S., Biostatistics
+    institution: University of Michigan
+    location: Ann Arbor, MI
+    years: "2026"
+  - degree: B.S., Data Science and Statistics
+    note: Honors in Data Science
+    institution: University of Michigan
+    location: Ann Arbor, MI
+    years: "2025"

@@ -1,0 +1,75 @@
+---
+layout: base
+---
+<section class="hero">
+  <img class="avatar" src="{{ site.photo }}" alt="Photo of {{ site.name }}" width="160" height="160">
+  <div class="hero-text">
+    <h1>{{ site.name }}</h1>
+    <p class="role">{{ site.role }}</p>
+    <p class="affil">{{ site.affiliation }}{% if site.location %} · {{ site.location }}{% endif %}</p>
+    {% include "partials/links.njk" %}
+  </div>
+</section>
+
+<section class="prose bio">
+  {{ content | safe }}
+</section>
+
+{%- if site.interests.length or site.education.length %}
+<section class="facts">
+  {%- if site.interests.length %}
+  <div>
+    <h2 class="section-title"><span>Interests</span></h2>
+    <ul class="plain">
+      {%- for interest in site.interests %}
+      <li>{{ interest }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+  {%- if site.education.length %}
+  <div>
+    <h2 class="section-title"><span>Education</span></h2>
+    <ul class="plain edu">
+      {%- for e in site.education %}
+      <li>
+        <span class="edu-degree">{{ e.degree }}</span>
+        <span class="edu-inst">{{ e.institution }}{% if e.years %} · {{ e.years }}{% endif %}</span>
+        {%- if e.note %}<span class="edu-inst">{{ e.note }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+</section>
+{%- endif %}
+
+{%- set allNews = news | published | byDateDesc %}
+{%- if allNews.length %}
+<section>
+  <h2 class="section-title"><span>News</span>{% if allNews.length > 5 %}<a href="/news/">All news →</a>{% endif %}</h2>
+  {%- set newsItems = allNews | limit(5) %}
+  {% include "partials/news-list.njk" %}
+</section>
+{%- endif %}
+
+{%- set featured = publications | published | selected %}
+{%- if featured.length %}
+<section>
+  <h2 class="section-title"><span>Selected publications</span><a href="/research/">All publications →</a></h2>
+  <ol class="pubs">
+    {%- for pub in featured %}
+    {% include "partials/pub.njk" %}
+    {%- endfor %}
+  </ol>
+</section>
+{%- endif %}
+
+{%- set recent = collections.posts | newestFirst | limit(3) %}
+{%- if recent.length %}
+<section>
+  <h2 class="section-title"><span>Recent posts</span><a href="/blog/">All posts →</a></h2>
+  {%- set postItems = recent %}
+  {% include "partials/post-list.njk" %}
+</section>
+{%- endif %}

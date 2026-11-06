@@ -1,0 +1,17 @@
+---
+layout: base
+title: Blog
+description: Notes, essays and updates by Samuel Tan.
+permalink: /blog/
+---
+<header class="page-header">
+  <h1>{{ title }}</h1>
+  <p class="lede">Notes on research, methods and whatever else I'm thinking about. <a class="inline-icon" href="/feed.xml">{% icon "rss" %}Subscribe via RSS</a></p>
+</header>
+
+{%- set postItems = collections.posts | newestFirst %}
+{%- if postItems.length %}
+{% include "partials/post-list.njk" %}
+{%- else %}
+<p class="empty">No posts yet. Check back soon.</p>
+{%- endif %}

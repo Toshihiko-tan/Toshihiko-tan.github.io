@@ -1,0 +1,36 @@
+{%- set pid = "pub-" + (pub.title | slugify) %}
+<li class="pub">
+  <div class="pub-title">
+    {%- if pub.url %}<a href="{{ pub.url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+    {%- if pub.draft %} <span class="badge badge-draft">Draft</span>{% endif %}
+  </div>
+  <div class="pub-authors">{{ pub.authors | authorList(site.author_names) | safe }}</div>
+  <div class="pub-venue">
+    {%- if pub.venue %}<em>{{ pub.venue }}</em>, {% endif %}{{ pub.year }}
+    {%- if pub.note %} <span class="badge">{{ pub.note }}</span>{% endif %}
+  </div>
+  {%- if pub.links or pub.abstract or pub.bibtex %}
+  <div class="pub-links">
+    {%- for label, href in pub.links %}
+    <a class="chip" href="{{ href }}">{{ label }}</a>
+    {%- endfor %}
+    {%- if pub.abstract %}
+    <button class="chip js-only" type="button" data-toggle aria-expanded="false" aria-controls="{{ pid }}-abstract">Abstract</button>
+    {%- endif %}
+    {%- if pub.bibtex %}
+    <button class="chip js-only" type="button" data-toggle aria-expanded="false" aria-controls="{{ pid }}-bibtex">BibTeX</button>
+    {%- endif %}
+  </div>
+  {%- endif %}
+  {%- if pub.abstract %}
+  <div class="pub-panel" id="{{ pid }}-abstract">
+    <p>{{ pub.abstract }}</p>
+  </div>
+  {%- endif %}
+  {%- if pub.bibtex %}
+  <div class="pub-panel pub-bibtex" id="{{ pid }}-bibtex">
+    <pre id="{{ pid }}-bibtex-src">{{ pub.bibtex | trim }}</pre>
+    <button class="chip js-only copy-btn" type="button" data-copy="{{ pid }}-bibtex-src">Copy</button>
+  </div>
+  {%- endif %}
+</li>

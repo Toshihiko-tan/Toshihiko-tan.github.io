@@ -1,0 +1,6 @@
+node_modules/
+_site/
+.venv/
+.DS_Store
+.cache/
+.claude/launch.json

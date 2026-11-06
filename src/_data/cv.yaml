@@ -1,0 +1,98 @@
+# ---------------------------------------------------------------------------
+# Content for the CV page (/cv/). Education comes from site.yaml and publications
+# from publications.yaml, so they only need updating in one place.
+# Bullet points (`points`) can use inline Markdown, such as [links](https://example.org).
+# ---------------------------------------------------------------------------
+
+experience:
+  - org: University of Southern California, Keck School of Medicine
+    location: Los Angeles, CA
+    detail: "PIs: Prof. Doc Edge, Prof. Charleston Chiang"
+    dates: Current
+
+  - org: University of Michigan, Department of Statistics
+    location: Ann Arbor, MI
+    detail: "PI: Prof. Jonathan Terhorst"
+    dates: May 2025 – Jan 2026
+    points:
+      - >-
+        Co-created [demestats](https://github.com/jthlab/demestats), a Python library for
+        demographic inference; implemented a JAX-based optimizer that automates demographic
+        parameter estimation, replacing manual visual calibration in earlier workflows.
+        Co-author on the demestats paper.
+      - >-
+        Applied demestats to real datasets, including an internal unphased Michigan snake
+        dataset, and took part in the Genomic History Inference Strategies Tournament (GHIST)
+        using demestats to infer demographic parameters.
+
+  - org: University of Michigan School of Public Health, Department of Biostatistics
+    location: Ann Arbor, MI
+    detail: "PI: Prof. Irina Gaynanova"
+    dates: Aug 2024 – May 2025
+    points:
+      - >-
+        Developed [Gluco-LLM](https://github.com/Toshihiko-tan/Gluco-LLM), a zero-shot LLM
+        framework with retrieval-augmented generation (RAG) for CGM time-series forecasting,
+        reducing error by up to 30% and compute time by 50% compared with strong time-series
+        baselines.
+      - >-
+        Maintained and extended the [iglu](https://github.com/irinagain/iglu) R package for CGM
+        analysis (bug fixes, new features, tests, documentation) and improved its Shiny-based
+        visualization interface.
+      - >-
+        Curated and processed [Awesome-CGM](https://github.com/IrinaStatsLab/Awesome-CGM), a
+        widely used public CGM dataset collection covering 1,000+ individuals with over 200 stars
+        on GitHub. Coordinated analyses for a multi-institution consensus study with five external
+        CGM software teams.
+
+talks:
+  - title: Evaluating the Zero-Shot Predictive Ability of LLMs for CGM Time Series
+    event: Michigan Student Symposium for Interdisciplinary Statistical Sciences (MSSISS) 2025
+    type: Poster
+    award: Best Poster Award
+    date: Mar 2025
+    url: https://sites.lsa.umich.edu/mssiss/
+    summary: >-
+      Presented honors-thesis results on zero-shot LLM forecasting for CGM time series,
+      highlighting the gains from retrieval-augmented generation (RAG).
+
+honors:
+  - title: Phi Beta Kappa
+    detail: Alpha of Michigan Chapter
+    date: Apr 2025
+    url: https://sites.lsa.umich.edu/phibetakappa/
+  - title: Best Poster Award
+    detail: Michigan Student Symposium for Interdisciplinary Statistical Sciences
+    date: Mar 2025
+    url: https://sites.lsa.umich.edu/mssiss/
+
+skills:
+  - label: Programming
+    items: R, Python, C++, C, SQL, Java, JavaScript, Julia
+  - label: Machine learning & statistics
+    items: LLMs, CNNs, MCMC, HMMs, time-series forecasting
+  - label: Tools & frameworks
+    items: JAX, PyTorch, TensorFlow, Hugging Face, Git, GCP, HPC computing
+  - label: Languages
+    items: English, Chinese, Japanese, French (fluent); Spanish (working knowledge)
+
+outreach:
+  - role: Data Science Consultant
+    org: Industrial Sewing and Innovation Center (ISAIC)
+    url: https://isaic.org/
+    dates: Jan 2024 – Apr 2024
+    points:
+      - >-
+        Analytics engagement for a Detroit-based nonprofit: Python analyses and visualizations
+        (seaborn, matplotlib) and a concise report used in grant applications.
+      - Designed the analysis plan, created the visuals and co-authored the report.
+
+  - role: Education Committee
+    org: Michigan Data Science Team (MDST)
+    url: https://mdst.club/
+    dates: Jan 2024 – Aug 2024
+    points:
+      - >-
+        Built training content for student practitioners, emphasizing the statistical
+        foundations of data science (regularization, cross-validation, Bayesian methods).
+      - Led curriculum design and delivery and mentored the project team.

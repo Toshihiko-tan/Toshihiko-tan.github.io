@@ -1,0 +1,10 @@
+---
+layout: base
+title: News
+permalink: /news/
+---
+<header class="page-header">
+  <h1>{{ title }}</h1>
+</header>
+{%- set newsItems = news | published | byDateDesc %}
+{% include "partials/news-list.njk" %}

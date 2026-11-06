@@ -1,0 +1,22 @@
+# ---------------------------------------------------------------------------
+# Short updates for the News section on the home page (the five most recent are
+# shown there; /news/ lists all of them). Text can use inline Markdown, such as
+# [links](https://example.org) and *emphasis*. For month-only dates, use the 1st.
+#
+# - date: 2026-11-05
+#   text: Our preprint on ... is out on [bioRxiv](https://example.org)!
+# ---------------------------------------------------------------------------
+
+- date: 2026-07-11
+  text: >-
+    Our paper on [demestats](https://github.com/jthlab/demestats),
+    "[Faster inference of complex demographic models from large allele frequency spectra](https://doi.org/10.1093/bioinformatics/btag511),"
+    is out in *Bioinformatics*.
+
+- date: 2025-04-01
+  text: Inducted into Phi Beta Kappa (Alpha of Michigan chapter).
+
+- date: 2025-03-01
+  text: >-
+    Won the Best Poster Award at [MSSISS 2025](https://sites.lsa.umich.edu/mssiss/) for my
+    work on zero-shot forecasting of continuous glucose monitoring data with large language models.

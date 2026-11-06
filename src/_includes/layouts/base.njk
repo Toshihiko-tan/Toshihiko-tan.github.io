@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="{{ site.lang or 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- set pageTitle = (title + " · " + site.name) if title else site.name %}
+  {%- set pageDescription = description or site.description %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  <meta name="author" content="{{ site.name }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }} · Blog" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ buildTime }}">
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <script src="/assets/js/site.js?v={{ buildTime }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="/">{{ site.name }}</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          {%- for item in site.nav %}
+          {%- set active = (page.url == item.url) or (item.url != "/" and page.url and page.url.startsWith(item.url)) %}
+          <li><a href="{{ item.url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {%- endfor %}
+        </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Toggle theme">{% icon "moon" %}{% icon "sun" %}</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© {{ buildYear }} {{ site.name }}</p>
+      <p><a href="/feed.xml">{% icon "rss" %}RSS</a></p>
+    </div>
+  </footer>
+</body>
+</html>

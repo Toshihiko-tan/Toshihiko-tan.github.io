@@ -1,0 +1,150 @@
+---
+layout: base
+title: CV
+description: Curriculum vitae of Junyan (Samuel) Tan.
+permalink: /cv/
+hideCvLink: true
+---
+{#- The PDF is site.cv_pdf (src/assets/pdf/cv.pdf). The web version below it is built from
+    src/_data/cv.yaml, site.yaml (education) and publications.yaml. -#}
+<header class="page-header cv-header">
+  <h1>Curriculum Vitae</h1>
+  <p class="lede">{{ site.name }} · {{ site.role }}, {{ site.affiliation }}</p>
+  <div class="cv-actions">
+    {% include "partials/links.njk" %}
+    <div class="cv-buttons">
+      {%- if site.cv_pdf %}
+      <div class="cv-switch js-only" role="group" aria-label="Show the CV as">
+        <button class="chip" type="button" data-cv-view="pdf" aria-pressed="true">PDF</button>
+        <button class="chip" type="button" data-cv-view="web" aria-pressed="false">Web version</button>
+      </div>
+      <a class="chip" href="{{ site.cv_pdf }}" download="{{ site.name | slugify }}-cv.pdf">Download PDF</a>
+      {%- else %}
+      <button class="chip js-only" type="button" data-print>Print</button>
+      {%- endif %}
+    </div>
+  </div>
+</header>
+
+<div class="cv-body" data-view="{{ 'pdf' if site.cv_pdf else 'web' }}">
+{%- if site.cv_pdf %}
+<div class="cv-pdf">
+  <object data="{{ site.cv_pdf }}#navpanes=0&amp;view=FitH" type="application/pdf" aria-label="CV of {{ site.name }} (PDF)">
+    <p class="cv-pdf-fallback">Your browser can't show the PDF on this page.
+      <a href="{{ site.cv_pdf }}">Open the PDF</a> instead.</p>
+  </object>
+</div>
+{%- endif %}
+
+<div class="cv-web">
+{%- if site.interests.length %}
+<section>
+  <h2 class="section-title"><span>Research interests</span></h2>
+  <p class="cv-inline">{{ site.interests | join(" · ") }}</p>
+</section>
+{%- endif %}
+
+<section>
+  <h2 class="section-title"><span>Education</span></h2>
+  {%- for e in site.education %}
+  <div class="cv-entry">
+    <div class="cv-row"><strong>{{ e.institution }}</strong><span class="cv-date">{{ e.years }}</span></div>
+    <div class="cv-row cv-sub"><span>{{ e.degree }}{% if e.note %}, {{ e.note }}{% endif %}</span><span>{{ e.location }}</span></div>
+  </div>
+  {%- endfor %}
+</section>
+
+{%- if cv.experience.length %}
+<section>
+  <h2 class="section-title"><span>Research experience</span></h2>
+  {%- for x in cv.experience %}
+  <div class="cv-entry">
+    <div class="cv-row"><strong>{{ x.org }}</strong><span class="cv-date">{{ x.dates }}</span></div>
+    <div class="cv-row cv-sub"><span>{{ x.detail }}</span><span>{{ x.location }}</span></div>
+    {%- if x.points %}
+    <ul class="cv-points">
+      {%- for point in x.points %}
+      <li>{{ point | inlineMarkdown | safe }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+</section>
+{%- endif %}
+
+{%- set pubs = publications | published | sort(true, false, "year") %}
+{%- if pubs.length %}
+<section>
+  <h2 class="section-title"><span>Publications, preprints &amp; selected works</span></h2>
+  <ol class="cv-pubs">
+    {%- for pub in pubs %}
+    <li>
+      {{ pub.authors | authorList(site.author_names) | safe }} ({{ pub.year }}).
+      {% if pub.url %}<a href="{{ pub.url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}.
+      {%- if pub.venue %} <em>{{ pub.venue }}</em>.{% endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+{%- endif %}
+
+{%- if cv.talks.length %}
+<section>
+  <h2 class="section-title"><span>Talks &amp; presentations</span></h2>
+  {%- for talk in cv.talks %}
+  <div class="cv-entry">
+    <div class="cv-row"><strong>{{ talk.title }}</strong><span class="cv-date">{{ talk.date }}</span></div>
+    <div class="cv-row cv-sub"><span>{% if talk.url %}<a href="{{ talk.url }}">{{ talk.event }}</a>{% else %}{{ talk.event }}{% endif %} · {{ talk.type }}{% if talk.award %} ({{ talk.award }}){% endif %}</span></div>
+    {%- if talk.summary %}
+    <ul class="cv-points"><li>{{ talk.summary | inlineMarkdown | safe }}</li></ul>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+</section>
+{%- endif %}
+
+{%- if cv.honors.length %}
+<section>
+  <h2 class="section-title"><span>Honors &amp; awards</span></h2>
+  {%- for h in cv.honors %}
+  <div class="cv-entry">
+    <div class="cv-row"><strong>{% if h.url %}<a href="{{ h.url }}">{{ h.title }}</a>{% else %}{{ h.title }}{% endif %}</strong><span class="cv-date">{{ h.date }}</span></div>
+    {%- if h.detail %}<div class="cv-row cv-sub"><span>{{ h.detail }}</span></div>{% endif %}
+  </div>
+  {%- endfor %}
+</section>
+{%- endif %}
+
+{%- if cv.skills.length %}
+<section>
+  <h2 class="section-title"><span>Skills</span></h2>
+  <dl class="cv-skills">
+    {%- for s in cv.skills %}
+    <dt>{{ s.label }}</dt>
+    <dd>{{ s.items }}</dd>
+    {%- endfor %}
+  </dl>
+</section>
+{%- endif %}
+
+{%- if cv.outreach.length %}
+<section>
+  <h2 class="section-title"><span>Mentorship &amp; outreach</span></h2>
+  {%- for o in cv.outreach %}
+  <div class="cv-entry">
+    <div class="cv-row"><strong>{{ o.role }}</strong><span class="cv-date">{{ o.dates }}</span></div>
+    <div class="cv-row cv-sub"><span>{% if o.url %}<a href="{{ o.url }}">{{ o.org }}</a>{% else %}{{ o.org }}{% endif %}</span></div>
+    {%- if o.points %}
+    <ul class="cv-points">
+      {%- for point in o.points %}
+      <li>{{ point | inlineMarkdown | safe }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+</section>
+{%- endif %}
+</div>
+</div>

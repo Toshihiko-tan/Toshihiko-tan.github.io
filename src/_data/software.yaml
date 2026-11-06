@@ -1,0 +1,39 @@
+# ---------------------------------------------------------------------------
+# Software and datasets shown on the Research page.
+#
+#   name, url, description   required
+#   language                 optional, e.g. Python, R
+#   role                     optional, e.g. Author, Co-creator, Contributor
+# ---------------------------------------------------------------------------
+
+- name: demestats
+  url: https://github.com/jthlab/demestats
+  language: Python
+  role: Co-creator
+  description: >-
+    Demographic inference from allele frequency spectra, with a JAX-based optimizer that
+    estimates demographic parameters automatically.
+
+- name: Gluco-LLM
+  url: https://github.com/Toshihiko-tan/Gluco-LLM
+  language: Python
+  role: Author
+  description: >-
+    Zero-shot forecasting of continuous glucose monitoring (CGM) time series with large
+    language models and retrieval-augmented generation.
+
+- name: iglu
+  url: https://github.com/irinagain/iglu
+  language: R
+  role: Contributor
+  description: >-
+    R package and Shiny app for analyzing CGM data. I fixed bugs, added features, tests and
+    documentation, and improved the visualization interface.
+
+- name: Awesome-CGM
+  url: https://github.com/IrinaStatsLab/Awesome-CGM
+  language: R
+  role: Contributor
+  description: >-
+    A widely used collection of public CGM datasets covering more than 1,000 individuals,
+    with processing scripts for each.

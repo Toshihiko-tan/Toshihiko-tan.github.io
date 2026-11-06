@@ -1,0 +1,8 @@
+<ul class="news">
+  {%- for item in newsItems %}
+  <li>
+    <time datetime="{{ item.date | isoDate }}">{{ item.date | monthYear }}</time>
+    <div>{{ item.text | inlineMarkdown | safe }}</div>
+  </li>
+  {%- endfor %}
+</ul>

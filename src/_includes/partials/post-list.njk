@@ -1,0 +1,14 @@
+<ul class="post-list">
+  {%- for post in postItems %}
+  <li>
+    <time datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+    <div>
+      <a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+      {%- if post.data.draft %} <span class="badge badge-draft">Draft</span>{% endif %}
+      {%- if post.data.description %}
+      <p>{{ post.data.description }}</p>
+      {%- endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ul>

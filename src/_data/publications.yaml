@@ -1,0 +1,92 @@
+# ---------------------------------------------------------------------------
+# Publications, preprints, theses and datasets. The Research page groups them by
+# year (newest first), and the CV page lists them as citations.
+#
+#   title      required
+#   authors    required; a list of names. Your name (site.yaml → author_names) is bolded.
+#              End a name with * for equal contribution, e.g. "Junyan Tan*".
+#   year       required
+#   venue      journal, conference, server or institution
+#   note       optional badge, e.g. Preprint, In review, Thesis
+#   url        optional link for the title (usually the DOI)
+#   links      optional buttons, as "Label: url" (PDF, Code, Data, Slides, Poster ...)
+#   abstract   optional; shown behind an "Abstract" button
+#   bibtex     optional; shown behind a "BibTeX" button with a copy button
+#   selected   true to feature it on the home page
+#   draft      true to show it only in local preview, never on the live site
+# ---------------------------------------------------------------------------
+
+- title: Faster inference of complex demographic models from large allele frequency spectra
+  authors:
+    - Enes Dilber
+    - Jiatong Liang
+    - Junyan Tan
+    - Jonathan Terhorst
+  venue: Bioinformatics 42(8), btag511
+  year: 2026
+  url: https://doi.org/10.1093/bioinformatics/btag511
+  links:
+    Paper: https://doi.org/10.1093/bioinformatics/btag511
+    Code: https://github.com/jthlab/demestats
+  bibtex: |
+    @article{dilber2026faster,
+      title   = {Faster inference of complex demographic models from large allele frequency spectra},
+      author  = {Dilber, Enes and Liang, Jiatong and Tan, Junyan and Terhorst, Jonathan},
+      journal = {Bioinformatics},
+      volume  = {42},
+      number  = {8},
+      pages   = {btag511},
+      year    = {2026},
+      doi     = {10.1093/bioinformatics/btag511}
+    }
+  selected: true
+
+- title: Evaluating the Zero-Shot Predictive Ability of Large Language Models for Continuous Glucose Monitoring Data
+  authors:
+    - Junyan Tan
+  venue: Undergraduate Honors Thesis, University of Michigan
+  year: 2025
+  note: Thesis
+  url: https://doi.org/10.7302/27396
+  links:
+    Thesis: https://doi.org/10.7302/27396
+    Code: https://github.com/Toshihiko-tan/Gluco-LLM
+  bibtex: |
+    @misc{tan2025evaluating,
+      title  = {Evaluating the Zero-Shot Predictive Ability of Large Language Models for Continuous Glucose Monitoring Data},
+      author = {Tan, Junyan},
+      year   = {2025},
+      note   = {Undergraduate Honors Thesis, University of Michigan},
+      doi    = {10.7302/27396}
+    }
+  selected: true
+
+- title: "Awesome-CGM: List of CGM datasets"
+  authors:
+    - Xinran Xu
+    - Neo Kok
+    - Junyan Tan
+    - Mary Martin
+    - David Buchanan
+    - Elizabeth Chun
+    - Rucha Bhat
+    - Shaun Cass
+    - Eric Wang
+    - Sangaman Senthil
+    - Irina Gaynanova
+  venue: Version 2.0.0, Zenodo
+  year: 2024
+  note: Dataset
+  url: https://doi.org/10.5281/zenodo.3895210
+  links:
+    Zenodo: https://doi.org/10.5281/zenodo.3895210
+    GitHub: https://github.com/IrinaStatsLab/Awesome-CGM
+  bibtex: |
+    @misc{xu2024awesomecgm,
+      title     = {Awesome-CGM: List of CGM datasets},
+      author    = {Xu, Xinran and Kok, Neo and Tan, Junyan and Martin, Mary and Buchanan, David and Chun, Elizabeth and Bhat, Rucha and Cass, Shaun and Wang, Eric and Senthil, Sangaman and Gaynanova, Irina},
+      year      = {2024},
+      note      = {Version 2.0.0},
+      publisher = {Zenodo},
+      doi       = {10.5281/zenodo.3895210}
+    }
