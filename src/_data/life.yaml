@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# The Life page (/life/): music, travel and kendo. More sections can be added the
+# The Life page (/life/): music, kendo and ramen. More sections can be added the
 # same way.
 #
 # Anything marked `draft: true` shows in your local preview (with a DRAFT label)
@@ -9,7 +9,7 @@
 # Only add links to accounts you're happy to make public.
 # ---------------------------------------------------------------------------
 
-intro: Music, travel and other things I do outside research.
+intro: Music, kendo, ramen and other things I do outside research.
 
 music:
   blurb: Bands and radio                 # the small line in the Music panel
@@ -104,31 +104,9 @@ kendo:
 
 ramen:
   blurb: "@ramenisthecure_"              # the small line in the Ramen panel
-  text: I keep a log of the ramen shops I visit on Instagram.
+  text: >-
+    Ramen is my favorite food, and since 2024 I've logged every shop I visit on Instagram,
+    with what I ordered. Most of the bowls come from trips around Japan, plus a few from the
+    US, Hong Kong and mainland China. At Jiro-style shops, my call is ヤサイマシニンニクアブラ.
   handle: "@ramenisthecure_"
   url: https://www.instagram.com/ramenisthecure_/
-
-travel:
-  blurb: All 47 prefectures of Japan     # the small line in the Travel panel
-  text: I've been to every one of Japan's 47 prefectures.
-  japan_note: All 47 prefectures         # shown beside the "Japan" heading
-  # Japan by region, north to south (47 prefectures in all).
-  japan:
-    - region: Hokkaido
-      prefectures: [Hokkaido]
-    - region: Tohoku
-      prefectures: [Aomori, Iwate, Miyagi, Akita, Yamagata, Fukushima]
-    - region: Kanto
-      prefectures: [Ibaraki, Tochigi, Gunma, Saitama, Chiba, Tokyo, Kanagawa]
-    - region: Chubu
-      prefectures: [Niigata, Toyama, Ishikawa, Fukui, Yamanashi, Nagano, Gifu, Shizuoka, Aichi]
-    - region: Kansai
-      prefectures: [Mie, Shiga, Kyoto, Osaka, Hyogo, Nara, Wakayama]
-    - region: Chugoku
-      prefectures: [Tottori, Shimane, Okayama, Hiroshima, Yamaguchi]
-    - region: Shikoku
-      prefectures: [Tokushima, Kagawa, Ehime, Kochi]
-    - region: Kyushu & Okinawa
-      prefectures: [Fukuoka, Saga, Nagasaki, Kumamoto, Oita, Miyazaki, Kagoshima, Okinawa]
-  # Other places, shown under Japan. Each can have `year`, `note` and `url` (e.g. a blog post).
-  places: []

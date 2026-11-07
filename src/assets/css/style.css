@@ -1051,44 +1051,6 @@ ul.plain {
   letter-spacing: 0.08em;
 }
 
-.places li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 1.5rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line);
-  line-height: 1.55;
-}
-
-.places li:first-child {
-  padding-top: 0;
-}
-
-.places li:last-child {
-  border-bottom: 0;
-}
-
-.places-note {
-  grid-column: 1;
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-
-.places-year {
-  grid-column: 2;
-  grid-row: 1;
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-/* Travel: Japan's regions, each with its prefectures on one line. */
-.regions li {
-  grid-template-columns: 8rem 1fr;
-  padding: 0.7rem 0;
-}
-
 .kendo .sub-title:first-of-type {
   margin-top: 0.5rem;
 }
@@ -1122,6 +1084,221 @@ ul.plain {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+}
+
+.log-more {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+}
+
+.log-more + .ramen-link {
+  margin-top: 2.25rem;
+}
+
+/* Headline numbers: large light figures with small labels, on a hairline. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 1.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.15rem;
+  padding: 1rem 1rem 0.9rem 0;
+}
+
+.stats div + div {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats dt {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+}
+
+.page-header + .stats {
+  margin-bottom: 2rem;
+}
+
+/* A place that is an educated guess. */
+.log-guess {
+  display: inline-grid;
+  place-items: center;
+  width: 1.05em;
+  height: 1.05em;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--muted);
+  font-size: 0.7em;
+  line-height: 1;
+  vertical-align: 0.1em;
+  cursor: help;
+}
+
+/* Ramen log page: filters and the table. */
+.log-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 0 0 1rem;
+}
+
+.log-field select,
+.log-field input {
+  height: 1.9rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8125rem;
+}
+
+.log-search {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.log-search input {
+  width: 100%;
+}
+
+.log-field select:focus-visible,
+.log-field input:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 2px;
+}
+
+.log-count {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.log-year .year {
+  margin-top: 2.25rem;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.log-table th {
+  padding: 0.4rem 1rem 0.4rem 0;
+  border-bottom: 1px solid var(--text);
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+.log-table td {
+  padding: 0.7rem 1rem 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: baseline;
+  line-height: 1.5;
+}
+
+.log-date {
+  width: 4.5rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.log-shop a {
+  text-decoration: none;
+}
+
+.log-shop a:hover {
+  text-decoration: underline;
+}
+
+.log-order,
+.log-place {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.log-place {
+  width: 30%;
+}
+
+.log-table tr[hidden],
+.log-year[hidden] {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 719px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .stats div:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  /* On phones each visit becomes a small stacked block. */
+  .log-table thead {
+    display: none;
+  }
+
+  .log-table tr {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    column-gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .log-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .log-date {
+    grid-row: span 3;
+    width: auto;
+  }
+
+  .log-place {
+    width: auto;
+  }
 }
 
 @media (max-width: 719px) {

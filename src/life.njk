@@ -1,14 +1,13 @@
 ---
 layout: base
 title: Life
-description: Music, travel and other things Junyan (Samuel) Tan does outside research.
+description: Music, kendo, ramen and other things Junyan (Samuel) Tan does outside research.
 permalink: /life/
 # To hide this page again, add `draft: true` here and on Life in site.yaml → nav.
 ---
 {#- Content comes from src/_data/life.yaml. -#}
 {%- set panelItems = [
   { "title": "Music", "blurb": life.music.blurb, "url": "#music" },
-  { "title": "Travel", "blurb": life.travel.blurb, "url": "#travel" },
   { "title": "Kendo", "blurb": life.kendo.blurb, "url": "#kendo" },
   { "title": "Ramen", "blurb": life.ramen.blurb, "url": "#ramen" }
 ] %}
@@ -91,47 +90,6 @@ permalink: /life/
   </div>
 </section>
 
-{%- set t = life.travel %}
-<section class="block" id="travel">
-  <h2 class="section-title"><span>Travel</span></h2>
-  <div class="block-body">
-    {%- if t.text %}<p class="life-text">{{ t.text | inlineMarkdown | safe }}</p>{% endif %}
-
-    {%- if t.japan and t.japan.length %}
-    <div class="band">
-      <h3 class="band-head">
-        <span class="band-name">Japan</span>
-        {%- if t.japan_note %}<span class="band-meta">{{ t.japan_note }}</span>{% endif %}
-      </h3>
-      <ul class="news regions">
-        {%- for r in t.japan %}
-        <li>
-          <span class="role-dates">{{ r.region }}</span>
-          <div>{{ r.prefectures | join(" · ") }}</div>
-        </li>
-        {%- endfor %}
-      </ul>
-    </div>
-    {%- endif %}
-
-    {%- set places = t.places | published %}
-    {%- if places.length %}
-    <ul class="plain places">
-      {%- for p in places %}
-      <li>
-        <span class="places-name">
-          {%- if p.url %}<a href="{{ p.url }}">{{ p.place }}</a>{% else %}{{ p.place }}{% endif %}
-          {%- if p.draft %} <span class="badge badge-draft">Draft</span>{% endif %}
-        </span>
-        {%- if p.note %}<span class="places-note">{{ p.note | inlineMarkdown | safe }}</span>{% endif %}
-        {%- if p.year %}<span class="places-year">{{ p.year }}</span>{% endif %}
-      </li>
-      {%- endfor %}
-    </ul>
-    {%- endif %}
-  </div>
-</section>
-
 {%- set k = life.kendo %}
 <section class="block" id="kendo">
   <h2 class="section-title"><span>Kendo</span></h2>
@@ -179,6 +137,25 @@ permalink: /life/
   <h2 class="section-title"><span>Ramen</span></h2>
   <div class="block-body">
     {%- if rm.text %}<p class="life-text">{{ rm.text | inlineMarkdown | safe }}</p>{% endif %}
+
+    {%- if ramen and ramen.length %}
+    {% include "partials/ramen-stats.njk" %}
+
+    <h3 class="sub-title">Latest</h3>
+    <ul class="news shows">
+      {%- for v in ramen | byDateDesc | limit(5) %}
+      <li>
+        <time datetime="{{ v.date | isoDate }}">{{ v.date | shortDate }}</time>
+        <div>
+          <span class="show-title"><a href="{{ v.url }}">{{ v.shop }}</a></span>
+          <span class="show-venue">{% if v.order %}{{ v.order }} · {% endif %}{{ v.place }}{% if v.guess %} <span class="log-guess" title="Educated guess">?</span>{% endif %}</span>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="log-more"><a href="/life/ramen/">All {{ ramen.length }} visits →</a></p>
+    {%- endif %}
+
     {%- if rm.url %}
     <p class="ramen-link"><a href="{{ rm.url }}" rel="me"><span class="ramen-handle">{{ rm.handle }}</span><span class="ramen-where">on Instagram ↗</span></a></p>
     {%- endif %}

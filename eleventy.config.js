@@ -114,6 +114,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("readableDate", dateFormat({ year: "numeric", month: "long", day: "numeric" }));
   eleventyConfig.addFilter("shortDate", dateFormat({ year: "numeric", month: "short", day: "numeric" }));
   eleventyConfig.addFilter("monthYear", dateFormat({ year: "numeric", month: "short" }));
+  eleventyConfig.addFilter("monthDay", dateFormat({ month: "short", day: "numeric" }));
   eleventyConfig.addFilter("isoDate", (v) => toDate(v).toISOString().slice(0, 10));
 
   // Filters: lists
@@ -154,6 +155,40 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("hasEqualContribution", (pubs = []) =>
     pubs.some((p) => (p.authors || []).some((a) => /\*\s*$/.test(a))),
   );
+
+  // Filters: ramen log (src/_data/ramen.yaml) and other lists of records.
+  const squash = (v) => String(v ?? "").replace(/\s+/g, "").toLowerCase();
+  // Number of distinct values of `key` (ignoring spaces and case), e.g. distinct shops.
+  eleventyConfig.addFilter("uniqueCount", (items = [], key) => new Set(items.map((i) => squash(i[key]))).size);
+  // Items whose `key` equals `value`.
+  eleventyConfig.addFilter("whereEq", (items = [], key, value) => items.filter((i) => i[key] === value));
+  // [{ year, items }] by the year of each item's `date`, keeping the given order.
+  eleventyConfig.addFilter("groupByDateYear", (items = []) => {
+    const groups = new Map();
+    for (const item of items) {
+      const year = toDate(item.date).getUTCFullYear();
+      if (!groups.has(year)) groups.set(year, []);
+      groups.get(year).push(item);
+    }
+    return [...groups].map(([year, items]) => ({ year, items }));
+  });
+  // [{ country, count, regions: [{ region, count }] }], biggest first, for the place filter.
+  eleventyConfig.addFilter("placeGroups", (items = []) => {
+    const countries = new Map();
+    for (const { country, region } of items) {
+      if (!country) continue;
+      if (!countries.has(country)) countries.set(country, new Map());
+      const regions = countries.get(country);
+      regions.set(region, (regions.get(region) || 0) + 1);
+    }
+    return [...countries]
+      .map(([country, regions]) => ({
+        country,
+        count: [...regions.values()].reduce((a, b) => a + b, 0),
+        regions: [...regions].map(([region, count]) => ({ region, count })).sort((a, b) => b.count - a.count || a.region.localeCompare(b.region)),
+      }))
+      .sort((a, b) => b.count - a.count);
+  });
 }
 
 export const config = {

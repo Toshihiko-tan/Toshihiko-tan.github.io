@@ -43,12 +43,20 @@ npm start       # preview at http://localhost:8080, reloads as you edit
 
 ### Life page
 
-`/life/` is the personal page: Music (bands, shows, radio), Travel (Japan's 47 prefectures),
-Kendo (clubs and rank exams) and Ramen, with numbered panels at the top that jump to each section.
+`/life/` is the personal page: Music (bands, shows, radio), Kendo (clubs and rank exams) and Ramen,
+with numbered panels at the top that jump to each section.
 Everything on it comes from `src/_data/life.yaml`, and the comments there explain each field.
 
 Add `draft: true` to any entry to keep it to your local preview while you write it. More sections
 can be added the same way, each with its own panel in `src/life.njk`.
+
+### Ramen log
+
+`/life/ramen/` lists every ramen post from @ramenisthecure_ (date, shop, what you ordered, place),
+with filters for type and place and a search box. Non-noodle meals aren't included. The Life page shows the totals and the five latest
+visits. All of it comes from `src/_data/ramen.yaml`, one entry per visit; the comment at the top
+lists the fields. To add a visit, copy an entry, change it, and push. Entries with `guess: true`
+show their place with a small "?".
 
 ### Home page panels (set aside)
 

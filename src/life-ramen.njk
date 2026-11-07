@@ -1,0 +1,67 @@
+---
+layout: base
+title: Ramen log
+description: Every ramen shop Junyan (Samuel) Tan has posted on @ramenisthecure_.
+permalink: /life/ramen/
+---
+{#- Data: src/_data/ramen.yaml. Filters are added by site.js; without JavaScript the full log shows. -#}
+{%- set log = ramen | byDateDesc %}
+<header class="page-header">
+  <p class="eyebrow"><a href="/life/#ramen">← Life</a></p>
+  <h1>Ramen log</h1>
+  <p class="lede">Every shop I've posted on <a href="{{ life.ramen.url }}">{{ life.ramen.handle }}</a>, newest first,
+    with what I ordered. Places marked <span class="log-guess" aria-hidden="true">?</span> are my best guess.</p>
+</header>
+
+{% include "partials/ramen-stats.njk" %}
+
+<div class="log-filters js-only" role="search" aria-label="Filter the log">
+  <div class="cv-switch" role="group" aria-label="Type">
+    <button class="chip" type="button" data-log-type="" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-log-type="ramen" aria-pressed="false">Ramen</button>
+    <button class="chip" type="button" data-log-type="soba-udon" aria-pressed="false">Soba &amp; udon</button>
+  </div>
+  <label class="log-field">
+    <span class="visually-hidden">Place</span>
+    <select data-log-place>
+      <option value="">Everywhere</option>
+      {%- for c in log | placeGroups %}
+      <optgroup label="{{ c.country }} ({{ c.count }})">
+        {%- for r in c.regions %}
+        <option value="{{ c.country }}|{{ r.region }}">{{ r.region }} ({{ r.count }})</option>
+        {%- endfor %}
+      </optgroup>
+      {%- endfor %}
+    </select>
+  </label>
+  <label class="log-field log-search">
+    <span class="visually-hidden">Search</span>
+    <input type="search" placeholder="Search shops, bowls, places" data-log-search>
+  </label>
+  <p class="log-count" aria-live="polite" data-log-count></p>
+</div>
+
+<div class="log" data-log>
+  {%- for group in log | groupByDateYear %}
+  <section class="log-year" data-log-year>
+    <h2 class="year">{{ group.year }}</h2>
+    <table class="log-table">
+      <thead>
+        <tr><th scope="col">Date</th><th scope="col">Shop</th><th scope="col">Ordered</th><th scope="col">Place</th></tr>
+      </thead>
+      <tbody>
+        {%- for v in group.items %}
+        {#- "noodles" (beef noodle soup, reimen, Okinawa soba) count as ramen in the type filter. #}
+        <tr data-type="{{ 'ramen' if v.type == 'noodles' else v.type }}" data-place="{{ v.country }}|{{ v.region }}">
+          <td class="log-date"><time datetime="{{ v.date | isoDate }}">{{ v.date | monthDay }}</time></td>
+          <td class="log-shop"><a href="{{ v.url }}">{{ v.shop }}</a></td>
+          <td class="log-order">{{ v.order or "—" }}</td>
+          <td class="log-place">{{ v.place }}{% if v.guess %} <span class="log-guess" title="Educated guess">?</span>{% endif %}</td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </section>
+  {%- endfor %}
+  <p class="empty log-empty" hidden data-log-empty>Nothing matches. Try another place or search.</p>
+</div>

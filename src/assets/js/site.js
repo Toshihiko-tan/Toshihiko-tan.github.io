@@ -44,6 +44,50 @@ document.querySelectorAll("[data-show-date]").forEach((show) => {
   }
 });
 
+// Ramen log page: filter visits by type, place and a search box.
+const log = document.querySelector("[data-log]");
+if (log) {
+  const rows = [...log.querySelectorAll("tbody tr")];
+  const typeButtons = document.querySelectorAll("[data-log-type]");
+  const placeSelect = document.querySelector("[data-log-place]");
+  const searchInput = document.querySelector("[data-log-search]");
+  const count = document.querySelector("[data-log-count]");
+  const empty = log.querySelector("[data-log-empty]");
+  let type = "";
+
+  const update = () => {
+    const place = placeSelect.value;
+    const words = searchInput.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const row of rows) {
+      const text = row.textContent.toLowerCase();
+      const ok =
+        (!type || row.dataset.type === type) &&
+        (!place || row.dataset.place === place) &&
+        words.every((w) => text.includes(w));
+      row.hidden = !ok;
+      if (ok) shown++;
+    }
+    // Hide a year's heading and table when none of its visits match.
+    log.querySelectorAll("[data-log-year]").forEach((year) => {
+      year.hidden = !year.querySelector("tbody tr:not([hidden])");
+    });
+    empty.hidden = shown > 0;
+    count.textContent = shown === rows.length ? `${rows.length} visits` : `Showing ${shown} of ${rows.length} visits`;
+  };
+
+  typeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      type = button.dataset.logType;
+      typeButtons.forEach((other) => other.setAttribute("aria-pressed", String(other === button)));
+      update();
+    });
+  });
+  placeSelect.addEventListener("change", update);
+  searchInput.addEventListener("input", update);
+  update();
+}
+
 // "Copy" button on BibTeX panels.
 document.querySelectorAll("[data-copy]").forEach((button) => {
   button.addEventListener("click", async () => {

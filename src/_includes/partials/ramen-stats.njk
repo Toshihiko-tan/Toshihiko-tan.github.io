@@ -1,0 +1,7 @@
+{#- Headline numbers for the ramen log (src/_data/ramen.yaml). -#}
+<dl class="stats">
+  <div><dt>Visits</dt><dd>{{ ramen.length }}</dd></div>
+  <div><dt>Shops</dt><dd>{{ ramen | uniqueCount("shop") }}</dd></div>
+  <div><dt>Prefectures</dt><dd>{{ ramen | whereEq("country", "Japan") | uniqueCount("region") }}</dd></div>
+  <div><dt>Countries &amp; regions</dt><dd>{{ ramen | uniqueCount("country") }}</dd></div>
+</dl>
